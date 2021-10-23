@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
+import Cryptos from './components/Body/Cryptos/Cryptos';
+import Nav from './components/Body/Nav/Nav'
 import './App.css';
 
-function App() {
+const App = () => {
+
+  const [crypto, setCrypto] = useState([]);
+  var requestOptions = {
+    method: 'GET',
+    redirect: 'follow'
+  };
+  const fetchCryptos = async () => {
+      try{
+      const res = await fetch('https://api.coinstats.app/public/v1/coins?skip=0&currency=EUR', requestOptions);
+      if(!res.ok){
+        throw new Error(`Http error: ${res.ststus}`);
+      }
+      const json = await res.json();
+      console.log(json.coins);
+      setCrypto(json.coins); 
+    }catch(error){
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCryptos();
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <div className='body'>
+        <Nav/>
+        <Cryptos crypto={crypto}/>
+      </div>
+      <div><h1>FOOTER</h1></div>
     </div>
   );
 }
