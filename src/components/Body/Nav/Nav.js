@@ -7,10 +7,10 @@ const Nav = () => {
             <img src={logo} alt="" className={`${style.logo}`}/>
             <ul className={`${style.navList}`}>
                 <li className={`${style.navItem}`}>
-                    <Link to="/crypto">Cryptocurrencies</Link>
+                    <Link to="/">Cryptocurrencies</Link>
                 </li>
                 <li className={`${style.navItem}`}>
-                    <Link to="/">News</Link>
+                    <Link to="/news">News</Link>
                 </li>
             </ul>
         </div>

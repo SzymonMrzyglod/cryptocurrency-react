@@ -6,7 +6,7 @@ const Cryptos = (props) => {
         <div className={`${style.cryptos}`}>
           {props.crypto.map(item => (
             <Crypto 
-              key = {item.id} {...item}
+              key = {item.rank} {...item}
             />
             ))};
       </div>

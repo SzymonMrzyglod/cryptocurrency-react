@@ -2,9 +2,7 @@ import style from './Crypto.module.css';
 
 const Crypto = (props) => {
   const changePrice = () => props.priceChange1d >= 0 ? style.increase : style.decrease; 
-
     return (
-      console.log(props.background),
         <div className={`${style.crypto} ${changePrice()}`}>
           <div className={`${style.cryptoHeader}`}>
               <img src={props.icon} alt="icon" className={`${style.cryptoLogo}`}/>

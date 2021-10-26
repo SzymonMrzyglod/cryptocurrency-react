@@ -14,9 +14,10 @@
 }
 .cryptoLogo{
     width: 15%;
+    object-fit: contain;
 }
 .cryptoName{
-    flex-grow: 1;
+    width: 85%;
     text-align: center;
 }
 .increase{
@@ -26,8 +27,20 @@
     background-color: rgb(255, 236, 236);
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1600px) {
+    .crypto{
+        width: 25%;
+    }
+}
+
+@media (max-width: 1300px) {
     .crypto{
         width: 40%;
     }
-}
+} 
+
+@media (max-width: 800px) {
+    .crypto{
+        width: 80%;
+    }
+} 

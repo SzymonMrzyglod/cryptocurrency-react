@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Cryptos from './components/Body/Cryptos/Cryptos';
 import Nav from './components/Body/Nav/Nav'
 import './App.css';
 import News from './components/Body/News/News';
+import Header from './components/Header/Header';
+
+const cryptoCoppy = [];
 
 const App = () => {
   const urlCrypto = 'https://api.coinstats.app/public/v1/coins?skip=0&currency=USD';
@@ -19,11 +22,12 @@ const App = () => {
         throw new Error(`Http error: ${res.ststus}`);
       }
       const json = await res.json();
-      url === urlCrypto ? 
-      setCrypto(json.coins)
-      :
-      setNews(json.news)
-      ; 
+      if(url === urlCrypto){
+        setCrypto(json.coins)
+        cryptoCoppy.push(...json.coins)
+      } else {
+        setNews(json.news)
+      }; 
     }catch(error){
       console.log(error);
     }
@@ -34,18 +38,22 @@ const App = () => {
     fetchCryptos(urlNews);
   }, []);
 
+  const searchCrypto = name => {
+    const cryptoName = [...cryptoCoppy]
+      .filter(coin => coin.id.toLowerCase().includes(name.toLowerCase()));
+    setCrypto(cryptoName)
+  }
+
   return (
     <Router>
       <div className="app">
-        
+        <Header onSearch={(name) => searchCrypto(name)} crypto={[...crypto]}/>
         <div className='body'>
-          <Nav/>
-          <Route exact={true} path='/'>
-            <News news={news}/>
-          </Route>
-          <Route path='/crypto'>
-            <Cryptos crypto={crypto}/>
-          </Route>
+          <Nav/>     
+            <Switch>
+              <Route exact={true} path='/news'><News news={news}/></Route>
+              <Route path='/'><Cryptos crypto={crypto}/></Route>
+            </Switch>
         </div>
         <div><h1>FOOTER</h1></div>
       </div>
