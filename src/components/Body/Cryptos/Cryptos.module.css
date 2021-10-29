@@ -1,7 +1,6 @@
 .cryptos{
     display: flex;
     flex-wrap: wrap;
-    margin-left: 15%;
     margin-top: 25px;
     justify-content: center;
 }

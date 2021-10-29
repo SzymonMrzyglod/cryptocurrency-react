@@ -12,6 +12,9 @@ const Nav = () => {
                 <li className={`${style.navItem}`}>
                     <Link to="/news">News</Link>
                 </li>
+                <li className={`${style.navItem}`}>
+                    <Link to="/charts">Charts</Link>
+                </li>
             </ul>
         </div>
      );

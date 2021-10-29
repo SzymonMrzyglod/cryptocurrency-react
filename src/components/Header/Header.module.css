@@ -2,7 +2,7 @@ header{
     display: flex;
     flex-direction: column;
     margin-left: 15%;
-    background-color: #03989E;
+    background-image: linear-gradient(to right, #03989E 30% , #03989E);
     padding: 10px;
 }
 .bar{

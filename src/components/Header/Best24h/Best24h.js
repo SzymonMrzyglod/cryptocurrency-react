@@ -3,8 +3,9 @@ import style from './Best24h.module.css';
 const Best24h = (props) => {
     return ( 
              <div className={`${style.coin}`}>
-                <h1>{props.name}</h1>
-                <p>{props.priceChange1d}%</p>
+                <img src={props.icon} alt="icon" className={`${style.icon}`}/>
+                <h1 className={`${style.symbol}`}>{props.symbol}</h1>
+                <p className={`${style.changeDay}`}>{props.priceChange1d}%</p>
             </div>
      );
 };

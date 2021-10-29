@@ -1,4 +1,17 @@
 .coin{
+    display: flex;
+    width: 20%;
     padding: 10px;
-
+}
+.icon{
+    width: 15%;
+    object-fit: contain;
+}
+.symbol{
+    font-size: 2rem;
+    margin-left: 10px;
+}
+.changeDay{
+    margin-left: 10px;
+    color: green;
 }
