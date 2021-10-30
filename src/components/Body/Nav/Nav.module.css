@@ -1,12 +1,4 @@
 .nav{
-    /* background-color: #03989E; */
-    /* display: flex; */
-  
-    /* position: fixed;
-    top:0;
-    left: 0;
-    height: 100vh;
-    width: 15%; */
     height: 15%;
     font-size: 2.2rem;
 }
@@ -15,31 +7,14 @@
     list-style: none;
 }
 .navItem a{
-    
     display: block;
     color: #FFF;
     padding: 10px 20px;
     text-transform: uppercase;
     text-decoration: none;
+    transition: .3s;
 }
-
-/* Color Theme Swatches in Hex */
-.Color-Theme-12-1-hex { color: #073359; }
-.Color-Theme-12-2-hex { color: #04668C; }
-.Color-Theme-12-3-hex { color: #0396A6; }
-.Color-Theme-12-4-hex { color: #F26E22; }
-.Color-Theme-12-5-hex { color: #F2A86E; }
-
-/* Color Theme Swatches in RGBA */
-.Color-Theme-12-1-rgba { color: rgba(7, 51, 89, 1); }
-.Color-Theme-12-2-rgba { color: rgba(4, 102, 140, 1); }
-.Color-Theme-12-3-rgba { color: rgba(3, 150, 166, 1); }
-.Color-Theme-12-4-rgba { color: rgba(242, 110, 34, 1); }
-.Color-Theme-12-5-rgba { color: rgba(242, 168, 110, 1); }
-
-/* Color Theme Swatches in HSLA */
-.Color-Theme-12-1-hsla { color: hsla(207, 85, 18, 1); }
-.Color-Theme-12-2-hsla { color: hsla(196, 94, 28, 1); }
-.Color-Theme-12-3-hsla { color: hsla(185, 96, 33, 1); }
-.Color-Theme-12-4-hsla { color: hsla(21, 88, 54, 1); }
-.Color-Theme-12-5-hsla { color: hsla(26, 83, 69, 1); }
+.navItem a:hover{
+    color: #ff9400;
+    transform: scale(1.1);
+}

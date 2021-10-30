@@ -13,7 +13,7 @@
     background-color: #00214D;
     position: fixed;
     top: 50%;
-    left: -160px;
+    left: -150px;
     align-self: center;
     width: 200px;
     transition: .3s;
@@ -21,12 +21,15 @@
 .showPanel{
     align-self: center;
     text-align: end;
-    width: 20%;
+    width: 25%;
+}
+.showPanel i{
+font-size: 3rem;
 }
 .option{
     display: flex;
     padding: 10px;
-    width: 80%;
+    width: 75%;
     flex-direction: column;
 }
 .option button{

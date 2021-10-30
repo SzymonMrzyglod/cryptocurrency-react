@@ -16,6 +16,7 @@ input{
     outline: transparent;
     width: 25%;
     transition: .3s;
+    color:#FFF
 }
 input:focus{
   border-width: 2px;

@@ -6,6 +6,7 @@ import News from './components/Body/News/News';
 import Header from './components/Header/Header';
 import Charts from './components/Body/Charts/Charts';
 import Panel from './components/Body/Panel/Panel';
+import Footer from './components/Footer/Footer';
 
 const cryptoCoppy = [];
 
@@ -58,12 +59,11 @@ const App = () => {
         <div className='body'>    
             <Switch>
               <Route exact={true} path='/news'><News news={news}/></Route>
-              <Route exact={true} path='/charts'><Charts crypto={crypto}/></Route>
               <Route path='/'><Cryptos crypto={crypto}/></Route>
             </Switch>
             <Panel onChange={(sort) => changeCrypto(sort)}flag={btnFlag} show={showCrypto} crypto={crypto}/>
         </div>
-        <div><h1>FOOTER</h1></div>
+        <Footer/>
       </div>
     </Router>
   );
