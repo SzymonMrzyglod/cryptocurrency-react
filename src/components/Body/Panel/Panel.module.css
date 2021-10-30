@@ -1,0 +1,42 @@
+.panelShow{
+    display: flex;
+    background-color: #00214D;
+    position: fixed;
+    top: 50%;
+    left: 0;
+    align-self: center;
+    width: 200px;
+    transition: .3s;
+}
+.panelHide{
+    display: flex;
+    background-color: #00214D;
+    position: fixed;
+    top: 50%;
+    left: -160px;
+    align-self: center;
+    width: 200px;
+    transition: .3s;
+}
+.showPanel{
+    align-self: center;
+    text-align: end;
+    width: 20%;
+}
+.option{
+    display: flex;
+    padding: 10px;
+    width: 80%;
+    flex-direction: column;
+}
+.option button{
+    font-size: 1.6rem;
+    padding: 10px 0;
+    text-transform: uppercase;
+    color: #FFF;
+    cursor: pointer;
+}
+.option button:hover{
+    color: #ff9400;
+    transform: scale(1.1);
+  }

@@ -7,13 +7,8 @@ html{
     font-size: 10px;
     font-family: 'Roboto', sans-serif;
 }
-
 .body{
     display: flex;
     flex-direction: column;
-    margin-left: 15%;
-}
-.btnShow {
-    align-self: center;
-    width: 15%;
+    background-color: #ffffff;
 }

@@ -1,22 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Cryptos from './components/Body/Cryptos/Cryptos';
-import Nav from './components/Body/Nav/Nav'
 import './App.css';
 import News from './components/Body/News/News';
 import Header from './components/Header/Header';
 import Charts from './components/Body/Charts/Charts';
+import Panel from './components/Body/Panel/Panel';
 
 const cryptoCoppy = [];
-let btnFlag = true;
 
 const App = () => {
-  // const urlAll = 'https://api.coinstats.app/public/v1/coins?skip=0&currency=USD';
-  // const urlCrypto = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=8&currency=USD';
-  // const urlNews = 'https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20';
-  
+
   const [crypto, setCrypto] = useState([]);
   const [news, setNews] = useState([]);
+  const [btnFlag = true, setBtnFlag] = useState();
+  const [helper = true, setHelper] = useState();
 
   const fetchCryptos = async (limit) => {
       try{
@@ -37,15 +35,19 @@ const App = () => {
     fetchCryptos('8');
   }, []);
 
+  const changeCrypto = sort => {
+    setCrypto(sort);
+    setHelper(!helper); 
+  }
+
   const searchCrypto = name => {
-    console.log(cryptoCoppy);
     const cryptoName = [...cryptoCoppy]
       .filter(coin => coin.id.toLowerCase().includes(name.toLowerCase()));
     setCrypto(cryptoName)
   }
 
   const showCrypto = (limit) => {
-    btnFlag = !btnFlag; 
+    setBtnFlag(!btnFlag); 
     fetchCryptos(limit);
   }
 
@@ -53,14 +55,13 @@ const App = () => {
     <Router>
       <div className="app">
         <Header onSearch={(name) => searchCrypto(name)} crypto={[...crypto]}/>
-        <div className='body'>
-          <Nav/>     
+        <div className='body'>    
             <Switch>
               <Route exact={true} path='/news'><News news={news}/></Route>
               <Route exact={true} path='/charts'><Charts crypto={crypto}/></Route>
               <Route path='/'><Cryptos crypto={crypto}/></Route>
             </Switch>
-            <button className='btnShow' onClick={btnFlag ? () => showCrypto('0') : () => showCrypto('8')}>Show ALL</button>
+            <Panel onChange={(sort) => changeCrypto(sort)}flag={btnFlag} show={showCrypto} crypto={crypto}/>
         </div>
         <div><h1>FOOTER</h1></div>
       </div>
@@ -70,7 +71,9 @@ const App = () => {
 
 export default App;
 
-
+  // const urlAll = 'https://api.coinstats.app/public/v1/coins?skip=0&currency=USD';
+  // const urlCrypto = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=8&currency=USD';
+  // const urlNews = 'https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20';
 
 // const fetchCryptos = async (url) => {
 //   try{

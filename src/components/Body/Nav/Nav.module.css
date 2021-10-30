@@ -1,24 +1,26 @@
 .nav{
-    background-color: #03989E;
-    position: fixed;
+    /* background-color: #03989E; */
+    /* display: flex; */
+  
+    /* position: fixed;
     top:0;
     left: 0;
     height: 100vh;
-    width: 15%;
+    width: 15%; */
+    height: 15%;
     font-size: 2.2rem;
 }
 .navList{
+    display: flex;
     list-style: none;
 }
 .navItem a{
+    
     display: block;
-    color: #DDD;
+    color: #FFF;
     padding: 10px 20px;
     text-transform: uppercase;
     text-decoration: none;
-}
-.logo{
-    width: 100%;
 }
 
 /* Color Theme Swatches in Hex */

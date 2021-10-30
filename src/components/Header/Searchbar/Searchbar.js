@@ -35,7 +35,7 @@ function Searchbar(props){
         <button 
         onClick={searchCrypto}
         type="submit"
-        >Search</button>
+        ><i class="fas fa-search"></i></button>
     </div>
     )
     };
