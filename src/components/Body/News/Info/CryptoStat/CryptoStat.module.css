@@ -1,0 +1,16 @@
+.stats{
+    display: flex;
+    padding: 10px 0;
+}
+.coin{
+    font-weight: bold;
+    padding: 0 5px;
+}
+.increase{
+    color: green;
+    padding-right: 5px;
+}
+.decrease{
+    color: red;
+    padding-right: 5px;
+}

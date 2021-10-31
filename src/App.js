@@ -4,7 +4,6 @@ import Cryptos from './components/Body/Cryptos/Cryptos';
 import './App.css';
 import News from './components/Body/News/News';
 import Header from './components/Header/Header';
-import Charts from './components/Body/Charts/Charts';
 import Panel from './components/Body/Panel/Panel';
 import Footer from './components/Footer/Footer';
 
@@ -32,9 +31,18 @@ const App = () => {
     }
   };
 
-  useEffect(() => {
-    fetchCryptos('8');
-  }, []);
+  const fetchNews = async (time) => {
+    try{
+    const res = await fetch(`https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20`);
+    if(!res.ok){
+      throw new Error(`Http error: ${res.ststus}`);
+    }
+    const json = await res.json();
+      setNews(json.news)
+  }catch(error){
+    console.log(error);
+  }
+};
 
   const changeCrypto = sort => {
     setCrypto(sort);
@@ -51,6 +59,11 @@ const App = () => {
     setBtnFlag(!btnFlag); 
     fetchCryptos(limit);
   }
+
+  useEffect(() => {
+    fetchCryptos('8');
+    fetchNews();
+  }, []);
 
   return (
     <Router>
