@@ -1,0 +1,10 @@
+.increase{
+    margin: 0 5px;
+    color: green;
+    font-size: 1.4rem;
+}
+.decrease{
+    margin: 0 5px;
+    color: red;
+    font-size: 1.4rem;
+}

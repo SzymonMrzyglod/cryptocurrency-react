@@ -10,8 +10,8 @@ const Crypto = (props) => {
               <h1 className={`${style.cryptoName}`}>{props.name}</h1>
           </div>
           <p><strong>Rank:</strong> {props.rank}</p>
-          <p><strong>Current price:</strong>$ {props.price.toFixed(2)}</p>
-          <p><strong>Market cap:</strong>$ {props.marketCap.toFixed(2)}</p>
+          <p><strong>Current price:</strong> {props.currency} {props.price.toFixed(2)}</p>
+          <p><strong>Market cap:</strong> {props.currency} {props.marketCap.toFixed(2)}</p>
           <p><strong>Price change 24h:</strong> {props.priceChange1d}%</p>
           <Charts coin={props.id} changePrice={changePrice()}/>
         </div>

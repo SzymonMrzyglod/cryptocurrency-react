@@ -1,8 +1,6 @@
 import {useEffect, useState} from 'react';
 import Chart from './Chart/Chart';
 
-
-
 const Charts = (props) => {
     const [chartsData, setChartsData] = useState({});
     const fetchHistory = async (coin) => {

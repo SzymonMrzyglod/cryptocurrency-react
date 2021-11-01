@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef} from 'react';
 import style from './Searchbar.module.css';
 
 function Searchbar(props){
@@ -11,17 +11,25 @@ function Searchbar(props){
     }
 
     const updateSearch = e =>{
-        setName(e.target.value)
+           setName(e.target.value) 
     }
 
     const focusInput = () => {
         inputRef.current.focus();
     }
 
+    const validateInput = input => {
+        const re = /^[a-zA-Z0-9 ]*$/g
+        return re.test(input)
+    }
+
     useEffect(() => {
         focusInput()
     }, []);
 
+    useEffect(e => {
+        validateInput(name) ? setName(name) :  setName(name.substr(0, name.length-1))
+    }, [name])
     return(
     <div className={`${style.searchbar}`}>
         <input

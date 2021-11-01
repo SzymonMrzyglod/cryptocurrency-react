@@ -43,3 +43,16 @@ font-size: 3rem;
     color: #ff9400;
     transform: scale(1.1);
   }
+  .currency{
+      border-bottom: 1px solid #FFF;
+  }
+  .currency button{
+    font-size: 1.8rem;
+    margin: 0 4px;
+  }
+  .currencyTitle{
+      color: #FFF;
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      text-align: center;
+  }

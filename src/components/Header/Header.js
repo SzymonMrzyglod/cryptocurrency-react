@@ -11,8 +11,6 @@ const Header = (props) => {
 
     return ( 
         <header>
-
-
                 <div className={`${style.firstBar}`}>
                 <img src={logo} alt="" className={`${style.logo}`}/>
                 <Searchbar onSearch={props.onSearch}/>
@@ -23,11 +21,7 @@ const Header = (props) => {
                     <Best24h key={coin.rank} {...coin}/> 
                     ))} 
                </div>
-                
                      <Nav className={`${style.firstBar}`}/> 
-                
-  
-
         </header>
      );
 }

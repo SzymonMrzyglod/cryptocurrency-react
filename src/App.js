@@ -15,10 +15,12 @@ const App = () => {
   const [news, setNews] = useState([]);
   const [btnFlag = true, setBtnFlag] = useState();
   const [helper = true, setHelper] = useState();
+  const [limit='8', setLimit] = useState();
+  const [currency='USD', setCurrency] = useState();
 
-  const fetchCryptos = async (limit) => {
+  const fetchCryptos = async (limit, currency) => {
       try{
-      const res = await fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=${limit}&currency=USD`);
+      const res = await fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=${limit}&currency=${currency}`);
       if(!res.ok){
         throw new Error(`Http error: ${res.ststus}`);
       }
@@ -31,7 +33,7 @@ const App = () => {
     }
   };
 
-  const fetchNews = async (time) => {
+  const fetchNews = async () => {
     try{
     const res = await fetch(`https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20`);
     if(!res.ok){
@@ -55,13 +57,15 @@ const App = () => {
     setCrypto(cryptoName)
   }
 
-  const showCrypto = (limit) => {
-    setBtnFlag(!btnFlag); 
-    fetchCryptos(limit);
+  const showCrypto = (limitProp, currencyProp) => {
+    limitProp !== limit && setBtnFlag(!btnFlag);
+    setCurrency(currencyProp)
+    setLimit(limitProp);
+    fetchCryptos(limitProp, currencyProp);
   }
 
   useEffect(() => {
-    fetchCryptos('8');
+    fetchCryptos(limit, currency);
     fetchNews();
   }, []);
 
@@ -72,9 +76,9 @@ const App = () => {
         <div className='body'>    
             <Switch>
               <Route exact={true} path='/news'><News news={news}/></Route>
-              <Route path='/'><Cryptos crypto={crypto}/></Route>
+              <Route path='/'><Cryptos crypto={crypto} currency={currency}/></Route>
             </Switch>
-            <Panel onChange={(sort) => changeCrypto(sort)}flag={btnFlag} show={showCrypto} crypto={crypto}/>
+            <Panel onChange={(sort) => changeCrypto(sort)} limit={limit} currency={currency} flag={btnFlag} show={showCrypto} crypto={crypto}/>
         </div>
         <Footer/>
       </div>
@@ -83,30 +87,3 @@ const App = () => {
 }
 
 export default App;
-
-  // const urlAll = 'https://api.coinstats.app/public/v1/coins?skip=0&currency=USD';
-  // const urlCrypto = 'https://api.coinstats.app/public/v1/coins?skip=0&limit=8&currency=USD';
-  // const urlNews = 'https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20';
-
-// const fetchCryptos = async (url) => {
-//   try{
-//   const res = await fetch(url);
-//   if(!res.ok){
-//     throw new Error(`Http error: ${res.ststus}`);
-//   }
-//   const json = await res.json();
-//   if(url === urlCrypto){
-//     setCrypto(json.coins)
-//     cryptoCoppy.push(...json.coins)
-//   } else {
-//     setNews(json.news)
-//   }; 
-// }catch(error){
-//   console.log(error);
-// }
-// };
-
-// useEffect(() => {
-// fetchCryptos(urlCrypto);
-// fetchCryptos(urlNews);
-// }, []);
