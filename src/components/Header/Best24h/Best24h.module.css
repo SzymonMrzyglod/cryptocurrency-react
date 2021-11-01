@@ -1,14 +1,53 @@
-.coin{
+.coin {
     display: flex;
     width: 15%;
-    padding: 10px;
+    padding: 5px;
 }
-.icon{
+
+.icon {
     width: 10%;
     object-fit: contain;
 }
-.symbol{
+
+.symbol {
     font-size: 2rem;
     margin-left: 10px;
     color: #FFF;
+}
+
+@media (max-width: 1250px) {
+    .coin {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+    }
+
+    .symbol {
+        font-size: 1.6rem;
+        margin-left: 5px;
+    }
+
+    .icon {
+        width: 25%;
+    }
+}
+
+@media (max-width: 800px) {
+    .symbol {
+        display: none;
+    }
+
+    .coin {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 20%;
+        padding: 5px;
+    }
+
+    .icon {
+        width: 40%;
+        padding-bottom: 5px;
+    }
 }

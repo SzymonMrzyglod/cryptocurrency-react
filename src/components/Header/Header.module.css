@@ -1,29 +1,55 @@
-header{
+header {
     display: flex;
     flex-direction: column;
-    background-image: linear-gradient(to right, #00214D 30% , #01193a);
+    background-image: linear-gradient(to right, #00214D 30%, #01193a);
     padding: 10px;
 }
-.firstBar{
+
+.firstBar {
     display: flex;
-    font-size: 1.6rem;
-}
-.firstBar{
+    font-size: 1.4rem;
     width: 90%;
 }
-.secondBar{
+
+.secondBar {
     display: flex;
     width: 100%;
     border-bottom: 1px solid #FFF;
 }
-.secondBarTitle{
+
+.secondBarTitle {
     color: #FFF;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     width: 15%;
     align-self: center;
     text-transform: uppercase;
 }
-.logo{
-    width: 10%;
+
+.logo {
+    width: 15%;
     object-fit: contain;
+}
+
+@media (max-width: 1250px) {
+    .secondBarTitle {
+        width: 25%;
+    }
+
+    .firstBar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .secondBarTitle {
+        display: none
+    }
+
+    .logo {
+        width: 25%;
+    }
+
+    .firstBar {
+        width: 100%;
+    }
 }

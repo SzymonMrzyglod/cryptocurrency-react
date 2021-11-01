@@ -6,6 +6,7 @@ import News from './components/Body/News/News';
 import Header from './components/Header/Header';
 import Panel from './components/Body/Panel/Panel';
 import Footer from './components/Footer/Footer';
+import { BestCryptoToday, WrostCryptoToday } from './auxFunctions/sortCrypto';
 
 const cryptoCoppy = [];
 

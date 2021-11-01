@@ -1,41 +1,54 @@
-.searchbar{
+.searchbar {
   align-self: center;
   text-align: center;
   padding: 20px;
   width: 100%;
 }
-input{
-    padding: 12px 20px;
-    background-color:#00214d;
-    font-size: 1.8rem;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #FFF;
-    border-radius: 4px;
-    text-align: center;
-    outline: transparent;
-    width: 25%;
-    transition: .3s;
-    color:#FFF
+
+input {
+  padding: 10px;
+  background-color: #00214d;
+  font-size: 1.6rem;
+  border-width: 2px;
+  border-style: solid;
+  border-color: #FFF;
+  border-radius: 4px;
+  text-align: center;
+  outline: transparent;
+  width: 50%;
+  transition: .3s;
+  color: #FFF
 }
-input:focus{
+
+input:focus {
   border-width: 2px;
   border-color: #ff9400;
   color: #FFF;
   font-size: 1.8rem;
 }
-button{
+
+button {
   background-color: transparent;
   border: none;
 }
-button i{
+
+button i {
   color: #FFF;
   font-size: 2rem;
   padding: 0px 10px;
   cursor: pointer;
   transition: .3s;
 }
-button i:hover{
+
+button i:hover {
   color: #ff9400;
   transform: scale(1.1);
+}
+
+@media (max-width: 800px) {
+  input {
+    padding: 8px;
+    font-size: 1.4rem;
+    width: 80%;
+  }
 }
