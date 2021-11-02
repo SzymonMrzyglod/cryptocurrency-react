@@ -44,15 +44,23 @@ font-size: 3rem;
     transform: scale(1.1);
   }
   .currency{
-      border-bottom: 1px solid #FFF;
+      margin: 5px 0px;
   }
   .currency button{
     font-size: 1.8rem;
     margin: 0 4px;
   }
+  .currency button i{
+    font-style: normal;
+  }
   .currencyTitle{
+      border-bottom: 1px solid #FFF;
       color: #FFF;
       font-size: 1.6rem;
       text-transform: uppercase;
-      text-align: center;
+      text-align: left;
+      padding: 2px;
+  }
+  .currencyTitle strong{
+    color: #ff9400;
   }

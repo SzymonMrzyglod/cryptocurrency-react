@@ -73,12 +73,25 @@ const App = () => {
     <Router>
       <div className="app">
         <Header onSearch={(name) => searchCrypto(name)} crypto={[...crypto]}/>
-        <div className='body'>    
+        <div className='body'>   
+
             <Switch>
-              <Route exact={true} path='/news'><News news={news}/></Route>
-              <Route path='/'><Cryptos crypto={crypto} currency={currency}/></Route>
+              <Route exact={true} path='/news'>
+                <News news={news}/>
+              </Route>
+              
+              <Route path='/'>
+                <Cryptos crypto={crypto} currency={currency}/>
+                <Panel 
+                  onChange={(sort) => changeCrypto(sort)} 
+                  limit={limit} 
+                  currency={currency} 
+                  flag={btnFlag} 
+                  show={showCrypto} 
+                  crypto={crypto}/>
+              </Route>
             </Switch>
-            <Panel onChange={(sort) => changeCrypto(sort)} limit={limit} currency={currency} flag={btnFlag} show={showCrypto} crypto={crypto}/>
+
         </div>
         <Footer/>
       </div>

@@ -4,9 +4,10 @@ import style from './CryptoStat.module.css';
 const CryptoStat = (props) => {
     return ( 
         <div className={`${style.stats}`}>
-        <p className={`${style.coin}`}>{props.coinTitleKeyWords}</p>
-        <p className={ChangePriceStyle(props.coinPercent)}>
-            {PriceArrow(props.coinPercent)} {props.coinPercent}%</p>
+            <div className={`${style.coin}`}>{props.coinTitleKeyWords}</div>
+            <div className={ChangePriceStyle(props.coinPercent)}>
+                {PriceArrow(props.coinPercent)} {props.coinPercent}%
+            </div>
         </div>
      );
 }

@@ -1,12 +1,17 @@
 import { useEffect, useState, useRef} from 'react';
 import style from './Searchbar.module.css';
+import React, {useCallback} from 'react';
+import {useHistory} from 'react-router-dom';
 
 function Searchbar(props){
     const [name, setName] = useState('');
-
+    const history = useHistory();
     const inputRef = useRef();
 
+    const handleOnClick = useCallback(() => history.push('/'), [history]);
+
     const searchCrypto = () => {
+        handleOnClick()
         props.onSearch(name);
     }
 
@@ -43,7 +48,7 @@ function Searchbar(props){
         <button 
         onClick={searchCrypto}
         type="submit"
-        ><i class="fas fa-search"></i></button>
+        ><i className="fas fa-search"></i></button>
     </div>
     )
     };
