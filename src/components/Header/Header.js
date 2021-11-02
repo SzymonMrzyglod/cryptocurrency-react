@@ -11,17 +11,17 @@ const Header = (props) => {
 
     return ( 
         <header>
-                <div className={`${style.firstBar}`}>
+            <div className={`${style.firstBar}`}>
                 <img src={logo} alt="" className={`${style.logo}`}/>
                 <Searchbar onSearch={props.onSearch}/>
-                </div>
-               <div className={`${style.secondBar}`}>
-                       <p className={`${style.secondBarTitle}`}>Best in shown crypto <i class="fas fa-caret-right"></i></p>
-                    {bestCrypto.map(coin => (
-                    <Best24h key={coin.rank} {...coin}/> 
-                    ))} 
-               </div>
-                     <Nav className={`${style.firstBar}`}/> 
+            </div>
+            <div className={`${style.secondBar}`}>
+                <p className={`${style.secondBarTitle}`}>Best in shown crypto <i class="fas fa-caret-right"></i></p>
+                {bestCrypto.map(coin => (
+                <Best24h key={coin.rank} {...coin}/> 
+                ))} 
+            </div>
+            <Nav className={`${style.firstBar}`}/> 
         </header>
      );
 }

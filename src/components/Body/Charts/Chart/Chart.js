@@ -20,7 +20,6 @@ const Chart = (props) => {
         </AreaChart>
         </ResponsiveContainer>
       </div>
-
      );
 }
  

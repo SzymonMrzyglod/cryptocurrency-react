@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import style from './Panel.module.css';
-import { BestCryptoToday, WrostCryptoToday } from '../../../auxFunctions/sortCrypto';
+import { BestCryptoToday, WrostCryptoToday } from '../../../utils/sortCrypto';
 
 const Panel = (props) => {
     // const [sort=0, setSort] = useState();

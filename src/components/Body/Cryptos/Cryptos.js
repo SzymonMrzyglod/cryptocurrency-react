@@ -1,5 +1,6 @@
-import style from './Cryptos.module.css'
-import Crypto from './Crypto/Crypto'
+import style from './Cryptos.module.css';
+import Crypto from './Crypto/Crypto';
+
 const Cryptos = (props) => {
     return ( 
         <div className={`${style.cryptos}`}>

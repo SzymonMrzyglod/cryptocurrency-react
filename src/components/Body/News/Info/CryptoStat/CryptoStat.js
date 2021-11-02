@@ -1,8 +1,7 @@
-import {ChangePriceStyle, PriceArrow} from '../../../../../auxFunctions/changePriceStyle/changePriceStyle';
+import {ChangePriceStyle, PriceArrow} from '../../../../../utils/changePriceStyle/changePriceStyle';
 import style from './CryptoStat.module.css';
 
 const CryptoStat = (props) => {
-
     return ( 
         <div className={`${style.stats}`}>
         <p className={`${style.coin}`}>{props.coinTitleKeyWords}</p>

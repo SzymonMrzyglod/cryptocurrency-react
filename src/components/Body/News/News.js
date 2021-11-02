@@ -9,7 +9,7 @@ const News = (props) => {
               key = {item.id} {...item}
             />
             ))};
-      </div>
+        </div>
      );
 }
  

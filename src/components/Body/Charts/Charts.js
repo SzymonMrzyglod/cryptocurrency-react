@@ -9,12 +9,12 @@ const Charts = (props) => {
       if(!res.ok){
         throw new Error(`Http error: ${res.ststus}`);
       }
-      const json = await res.json();
-      setChartsData(json.chart)
-    }catch(error){
-      console.log(error);
-    }
-  };
+        const json = await res.json();
+        setChartsData(json.chart)
+      }catch(error){
+        console.log(error);
+      }
+    };
     
     useEffect(() => {
       fetchHistory(props.coin)
@@ -22,9 +22,8 @@ const Charts = (props) => {
 
     return ( 
         <div>
-            <Chart history={chartsData} changePrice={props.changePrice}/>
-      </div>
-
+          <Chart history={chartsData} changePrice={props.changePrice}/>
+        </div>
      );
 }
  

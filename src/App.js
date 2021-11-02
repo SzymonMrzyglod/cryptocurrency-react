@@ -6,7 +6,6 @@ import News from './components/Body/News/News';
 import Header from './components/Header/Header';
 import Panel from './components/Body/Panel/Panel';
 import Footer from './components/Footer/Footer';
-import { BestCryptoToday, WrostCryptoToday } from './auxFunctions/sortCrypto';
 
 const cryptoCoppy = [];
 
@@ -20,15 +19,15 @@ const App = () => {
   const [currency='USD', setCurrency] = useState();
 
   const fetchCryptos = async (limit, currency) => {
-      try{
+    try{
       const res = await fetch(`https://api.coinstats.app/public/v1/coins?skip=0&limit=${limit}&currency=${currency}`);
       if(!res.ok){
         throw new Error(`Http error: ${res.ststus}`);
       }
       const json = await res.json();
-        setCrypto(json.coins)
-        cryptoCoppy.length = 0;
-        cryptoCoppy.push(...json.coins)
+      setCrypto(json.coins)
+      cryptoCoppy.length = 0;
+      cryptoCoppy.push(...json.coins)
     }catch(error){
       console.log(error);
     }
@@ -36,16 +35,16 @@ const App = () => {
 
   const fetchNews = async () => {
     try{
-    const res = await fetch(`https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20`);
-    if(!res.ok){
-      throw new Error(`Http error: ${res.ststus}`);
-    }
-    const json = await res.json();
+      const res = await fetch(`https://api.coinstats.app/public/v1/news/handpicked?skip=0&limit=20`);
+      if(!res.ok){
+        throw new Error(`Http error: ${res.ststus}`);
+      }
+      const json = await res.json();
       setNews(json.news)
-  }catch(error){
-    console.log(error);
-  }
-};
+    }catch(error){
+      console.log(error);
+    }
+  };
 
   const changeCrypto = sort => {
     setCrypto(sort);
