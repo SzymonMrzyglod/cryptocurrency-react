@@ -4,6 +4,7 @@ import React, {useCallback} from 'react';
 import {useHistory} from 'react-router-dom';
 
 function Searchbar(props){
+    console.log(props);
     const [name, setName] = useState('');
     const history = useHistory();
     const inputRef = useRef();

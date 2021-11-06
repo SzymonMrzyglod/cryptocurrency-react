@@ -1,6 +1,7 @@
 import { useEffect, useState} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Cryptos from './components/Body/Cryptos/Cryptos';
+import { BestCryptoToday, WrostCryptoToday, Rank } from './utils/sortCrypto';
 import './App.css';
 import News from './components/Body/News/News';
 import Header from './components/Header/Header';
@@ -14,9 +15,9 @@ const App = () => {
   const [crypto, setCrypto] = useState([]);
   const [news, setNews] = useState([]);
   const [btnFlag = true, setBtnFlag] = useState();
-  const [helper = true, setHelper] = useState();
   const [limit='8', setLimit] = useState();
   const [currency='USD', setCurrency] = useState();
+  const [sort='RANK', setSort] = useState();
 
   const fetchCryptos = async (limit, currency) => {
     try{
@@ -28,6 +29,7 @@ const App = () => {
       setCrypto(json.coins)
       cryptoCoppy.length = 0;
       cryptoCoppy.push(...json.coins)
+      checkSort(sort)
     }catch(error){
       console.log(error);
     }
@@ -46,15 +48,24 @@ const App = () => {
     }
   };
 
-  const changeCrypto = sort => {
-    setCrypto(sort);
-    setHelper(!helper); 
+  const checkSort = (sort) => {
+    switch (sort) {
+      case 'BEST':
+          setCrypto(BestCryptoToday(cryptoCoppy));
+          break;
+      case 'WROST':
+         setCrypto(WrostCryptoToday(cryptoCoppy));
+         break;
+      default:
+        setCrypto(Rank(cryptoCoppy));
+  }
   }
 
   const searchCrypto = name => {
     const cryptoName = [...cryptoCoppy]
       .filter(coin => coin.id.toLowerCase().includes(name.toLowerCase()));
     setCrypto(cryptoName)
+    setSort('RANK')
   }
 
   const showCrypto = (limitProp, currencyProp) => {
@@ -62,6 +73,10 @@ const App = () => {
     setCurrency(currencyProp)
     setLimit(limitProp);
     fetchCryptos(limitProp, currencyProp);
+  }
+
+  const sortCrypto = (sortProp) => {
+    setSort(sortProp)
   }
 
   useEffect(() => {
@@ -83,12 +98,15 @@ const App = () => {
               <Route path='/'>
                 <Cryptos crypto={crypto} currency={currency}/>
                 <Panel 
-                  onChange={(sort) => changeCrypto(sort)} 
+                  onChange={(sort) => checkSort(sort)} 
                   limit={limit} 
                   currency={currency} 
                   flag={btnFlag} 
                   show={showCrypto} 
-                  crypto={crypto}/>
+                  crypto={crypto}
+                  sort={sortCrypto}
+                  sortOption = {sort}/>
+                  
               </Route>
             </Switch>
 
