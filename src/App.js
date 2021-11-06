@@ -58,7 +58,7 @@ const App = () => {
          break;
       default:
         setCrypto(Rank(cryptoCoppy));
-  }
+    }
   }
 
   const searchCrypto = name => {
