@@ -14,6 +14,7 @@ function Searchbar(props){
     const searchCrypto = () => {
         handleOnClick()
         props.onSearch(name);
+        setName('') 
     }
 
     const updateSearch = e =>{

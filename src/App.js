@@ -8,7 +8,7 @@ import Header from './components/Header/Header';
 import Panel from './components/Body/Panel/Panel';
 import Footer from './components/Footer/Footer';
 
-const cryptoCoppy = [];
+const cryptoCopy = [];
 
 const App = () => {
 
@@ -27,8 +27,8 @@ const App = () => {
       }
       const json = await res.json();
       setCrypto(json.coins)
-      cryptoCoppy.length = 0;
-      cryptoCoppy.push(...json.coins)
+      cryptoCopy.length = 0;
+      cryptoCopy.push(...json.coins)
       checkSort(sort)
     }catch(error){
       console.log(error);
@@ -51,21 +51,20 @@ const App = () => {
   const checkSort = (sort) => {
     switch (sort) {
       case 'BEST':
-          setCrypto(BestCryptoToday(cryptoCoppy));
+          setCrypto(BestCryptoToday(cryptoCopy));
           break;
       case 'WROST':
-         setCrypto(WrostCryptoToday(cryptoCoppy));
+         setCrypto(WrostCryptoToday(cryptoCopy));
          break;
       default:
-        setCrypto(Rank(cryptoCoppy));
+        setCrypto(Rank(cryptoCopy));
     }
   }
 
   const searchCrypto = name => {
-    const cryptoName = [...cryptoCoppy]
+    const cryptoName = [...cryptoCopy]
       .filter(coin => coin.id.toLowerCase().includes(name.toLowerCase()));
     setCrypto(cryptoName)
-    setSort('RANK')
   }
 
   const showCrypto = (limitProp, currencyProp) => {
